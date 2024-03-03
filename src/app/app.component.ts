@@ -28,6 +28,10 @@ export class AppComponent {
     }
   }
 
+  setListFilter(value: string) {
+    this.listFilter = value;
+  }
+
   addWishToItems(item: WishItem) {
     this.items.push(item);
   }
