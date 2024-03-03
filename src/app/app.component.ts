@@ -12,5 +12,5 @@ export class AppComponent {
     new WishItem('Get coffee', true),
     new WishItem('Find grass that cuts itself'),
   ];
-  filter = () => {};
+  filter: any;
 }

@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 import { WishItem } from '../../shared/models/wishItem';
 
+// zamienić później na switch w komponencie rodzica
 const filters = [
   (item: WishItem) => item,
   (item: WishItem) => !item.isComplete,
@@ -13,14 +14,16 @@ const filters = [
   styleUrl: './wish-filter.component.css',
 })
 export class WishFilterComponent implements OnInit {
-  @Output() filter = new EventEmitter();
+  @Input() filter: any;
+  @Output() filterChange = new EventEmitter();
   listFilter: string = '0';
 
-  changeFilter(value: string) {
-    return this.filter.emit(filters[Number(value)]);
+  updateFilter(value: string) {
+    this.filter = filters[Number(value)];
+    this.filterChange.emit(this.filter);
   }
 
   ngOnInit(): void {
-    this.changeFilter('0');
+    this.updateFilter('0');
   }
 }
