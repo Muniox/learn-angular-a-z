@@ -13,7 +13,6 @@ export class AppComponent {
     new WishItem('Find grass that cuts itself'),
   ];
   title: string = 'wishlist';
-  newWishText: string = '';
   listFilter: string = '0';
   get visibleItems(): WishItem[] {
     const value = this.listFilter;
@@ -29,12 +28,7 @@ export class AppComponent {
     }
   }
 
-  toggleItem(item: WishItem) {
-    item.isComplete = !item.isComplete;
-  }
-
-  addNewWish() {
-    this.items.push(new WishItem(this.newWishText));
-    this.newWishText = '';
+  addWishToItems(item: WishItem) {
+    this.items.push(item);
   }
 }
