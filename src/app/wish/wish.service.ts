@@ -5,7 +5,7 @@ import {
   HttpHeaders,
   HttpParams,
 } from '@angular/common/http';
-import { WishItem } from '../shared/models/wishItem';
+import { WishItem } from '../../shared/models/wishItem';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
@@ -34,7 +34,7 @@ export class WishService {
     });
 
     return this.http
-      .get('assets/wishes1.json', options)
+      .get('assets/wishes.json', options)
       .pipe(catchError(this.handleError));
 
     // this.http.post(url, body, options)
