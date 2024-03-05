@@ -9,7 +9,7 @@ import { WishService } from './wish.service';
   styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
-  items!: WishItem[];
+  items: WishItem[] = [];
   filter: any;
 
   constructor(
@@ -23,8 +23,16 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.wishService.getWishes().subscribe((data: any) => {
-      this.items = data;
+    this.wishService.getWishes().subscribe({
+      next: (data: any) => {
+        this.items = data;
+      },
+      error: (error: Error) => {
+        alert(error.message);
+      },
+      // complete: () => {
+      //   alert('data loaded');
+      // },
     });
   }
 }
