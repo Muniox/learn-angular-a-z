@@ -4,10 +4,10 @@
       <input
         type="checkbox"
         class="checkbox"
-        [checked]="fullfilled"
+        [checked]="wish.isComplete"
         (click)="toggleFullfilled()"
       />
-      {{ wishText }}
+      {{ wish.wishText }}
     </label>
   </div>
   <div>

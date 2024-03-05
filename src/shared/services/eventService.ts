@@ -1,6 +1,6 @@
 import { Observable, Subject } from 'rxjs';
 
-class EventService {
+export class EventService {
   private subject = new Subject();
 
   emit(eventName: string, payload: any) {

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { WishItem } from '../shared/models/wishItem';
+import events from './../shared/services/eventService';
 
 @Component({
   selector: 'app-root',
@@ -13,4 +14,11 @@ export class AppComponent {
     new WishItem('Find grass that cuts itself'),
   ];
   filter: any;
+
+  constructor() {
+    events.listen('removeWish', (wish: any) => {
+      const index = this.items.indexOf(wish);
+      this.items.splice(index, 1);
+    });
+  }
 }
