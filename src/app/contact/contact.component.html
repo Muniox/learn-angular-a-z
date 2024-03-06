@@ -53,6 +53,12 @@
         >Please enter your email address</small
       >
     </div>
+    <small
+      *ngIf="contactForm.get('senderEmail')?.hasError('invalidEmailDomain')"
+      class="text-danger"
+    >
+      The email provider is not allowed
+    </small>
   </div>
 
   <div class="mb-3">
