@@ -6,10 +6,17 @@ import { AppComponent } from './app.component';
 import { WishModule } from './wish/wish.module';
 import { ContactModule } from './contact/contact.module';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ProductsModule } from './products/products.module';
 
 @NgModule({
   declarations: [AppComponent, NotFoundComponent],
-  imports: [BrowserModule, AppRoutingModule, WishModule, ContactModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    WishModule,
+    ContactModule,
+    ProductsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
