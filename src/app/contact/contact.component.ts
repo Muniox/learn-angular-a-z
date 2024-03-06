@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-contact',
@@ -7,13 +7,13 @@ import { FormControl } from '@angular/forms';
   styleUrl: './contact.component.css',
 })
 export class ContactComponent {
-  senderNameControl = new FormControl('');
-  senderEmailControl = new FormControl('');
-  senderMessageControl = new FormControl('');
+  contactForm = new FormGroup({
+    senderName: new FormControl(''),
+    senderEmail: new FormControl(''),
+    senderMessage: new FormControl(''),
+  });
 
   submitForm() {
-    if (this.senderNameControl.dirty) {
-      alert('you changed the name');
-    }
+    console.log(this.contactForm.value);
   }
 }

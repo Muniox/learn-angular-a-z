@@ -1,11 +1,15 @@
-<form class="container p-5">
+<form
+  class="container p-5"
+  [formGroup]="contactForm"
+  (ngSubmit)="$event.preventDefault(); submitForm()"
+>
   <div class="mb-3">
     <label for="name" class="form-label">Your name</label>
     <input
       type="text"
       class="form-control"
       id="name"
-      [formControl]="senderNameControl"
+      formControlName="senderName"
     />
   </div>
   <div class="mb-3">
@@ -14,7 +18,7 @@
       type="email"
       class="form-control"
       id="email"
-      [formControl]="senderEmailControl"
+      formControlName="senderEmail"
     />
   </div>
   <div class="mb-3">
@@ -24,16 +28,10 @@
       class="form-control"
       rows="3"
       id="message"
-      [formControl]="senderMessageControl"
+      formControlName="senderMessage"
     ></textarea>
   </div>
   <div class="mb-3">
-    <button
-      type="submit"
-      class="btn btn-primary"
-      (click)="$event.preventDefault(); submitForm()"
-    >
-      Send Message
-    </button>
+    <button type="submit" class="btn btn-primary">Send Message</button>
   </div>
 </form>
