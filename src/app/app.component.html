@@ -6,6 +6,11 @@
     <li>
       <a [routerLink]="['/contact']">contact</a>
     </li>
+    <li>
+      <a href="#" (click)="$event.preventDefault(); goToContact()"
+        >Contact Us</a
+      >
+    </li>
   </ul>
 </div>
 <router-outlet />
